@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Cities</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+    
+    <div class="wrapper">
+
+    <p>Press the button below to get started.</p>
+    
+    <button onclick="startGame()">Start</button>
+
+    <p>Fill in the missing letters of the world capital.</p>
+
+    <p id="winningCity"></p>
+
+    Enter your guess (must be one letter): <input type="text" id="userGuess" onkeyup="captureGuess()">
+
+    <p>Your guess is: <span id="enteredGuess"></span></p>
+
+    <button onclick="compareGuess()">Enter your guess</button>
+
+    <div id=lettersAlreadyGuessed></div>
+
+    <div id=incorrectLetters></div>
+    
+    <button onclick="quitGame">Quit</button>
+    
+  
+    
+    <div class="jumbotron jumbotron-fluid"><img src="assets/images/Europe-Cities.png" alt="cityskyline"/>
+      <div class="container">
+        <h1 class="display-4">Guess the World Capital</h1>
+        <p class="lead">Press the button below to get started.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="assets/javascript/game.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  </body>
+</html>
+
+
+
+
+    <!-- this.lettersDiv = document.getElementById('letters');
+    this.incorrectLettersDiv = document.getElementById('incorrect-letters');
+
+    var word = "cat";
+    this.word = word;
+
+
+    // this.render();
+
+
+
+    document.onkeyup = function(letter) {
+      game.guess(letter.key);
+    }
+  },
+
+  guess: function(letter) {
+    
+    if (this.word.indexOf(letter) > -1) {
+      this.correctGuess(letter);
+    } else {
+      this.incorrectGuess(letter);
+    }
+    this.render();
+  },
+
+  correctGuess: function(letter) {
+    this.correctGuesses.push(letter);
+    // dom manipulation
+  },
+
+  incorrectGuess: function (letter) {
+    console.log(letter, 'is incorrect')
+    this.incorrectGuesses.push(letter);
+  },
+
+  render: function() {
+    this.renderLettersDiv();
+    this.incorrectLettersDiv.innerHTML = '';
+    this.saveToLocalStorage();
+  },
+
+  renderLettersDiv: function() {
+    this.lettersDiv.innerHTML = '';
+    var html = '';
+    for (var i = 0; i < this.word.length; i++) {
+      if (this.correctGuesses.indexOf(this.word[i]) > -1) {
+        html += "<div class='correct-letter'>" + this.word[i] + "<div>"; 
+      } else {
+        html += "<div class='unguessed-letter'>_</div>";
+      }
+    }
+
+    this.lettersDiv.innerHTML = html;
+  }, -->
