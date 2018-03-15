@@ -1,4 +1,7 @@
 
+// $(document).ready(function() {
+
+
 //potential cities array        
 var cities = [
     "KABUL",
@@ -11,7 +14,7 @@ var cities = [
     "ATHENS",
     "BAGHDAD",
     "QUITO",
-]
+];
 
 var randomCity;
 
@@ -27,6 +30,34 @@ var correctGuess;
 
 var incorrectGuess;
 
+// var letters = [
+//     "A", "B", "C", "D", "E", "F", "G", "H", "I",
+//     "J", "K", "L", "M", "N", "O", "P", "Q", "R", 
+//     "S", "T", "U", "V", "W", "X", "Y", "Z", "_"
+// ];
+
+// var main = $("body");
+
+// var btns = main.find("#buttons");
+
+// for (var i = 0; i < letters.length; i++) {
+//     var letterBtn = $("<button>");
+//     letterBtn.addClass("letter-button letter letter-button-color");
+//     letterBtn.attr("data-letter", letters[i]);
+//     letterBtn.text(letters[i]);
+//     btns.append(letterBtn);
+// }
+
+// btns.on("click", ".letter-button", function() {
+//     var fridgeMagnet = $("<div>");
+//     fridgeMagnet.addClass("letter fridge-color");
+//     fridgeMagnet.text($(this).attr("data-letter"));
+//     main.find("#display").append(fridgeMagnet);
+// });
+
+// main.on("click", "#clear", function() {
+//     main.find("#display").empty();
+// });
 
 function startGame() {
     randomCity = cities[Math.floor(Math.random() * cities.length)];
@@ -37,9 +68,11 @@ function startGame() {
     var dash = " _ " ;
 
     winningCity = dash.repeat(length);
-    console.log(winningCity);
+
     document.getElementById("winningCity").innerHTML = winningCity;
-    };
+
+    }
+
 
 function captureGuess() {
     userGuess = document.getElementById("userGuess").value;
@@ -49,33 +82,32 @@ function captureGuess() {
 
     var guessedLetter = userGuess.toUpperCase();
         //capitalize their guess
+}
 
-//     compare guessedLetter to winningCity but will be comparing a letter to a word? 
-};
+function compareGuess() {
+
+    var characterList = winningCity.split();
+    // break up winningCity into array
+    var j;
+
+    // for (j = 0; j < characterList.length; j++) {
+        // if (guessedLetter !==
+    }
 
 
 
-//  while (length > 0) {
-// //displays current state of word being guessed
 
-//     if (guessedLetter === somewhere in the winningCity word) {
-//         display it on the screen in the correct spot of winningCity;
-//     } else {
-//         incorrectGuess++;
-//         display it on the screen in the #lettersAlreadyGuessed div/array;
-//     }
 
-//     guessedLetterList = list.push(guessedLetter);
-//     //add guesses to the guessedList array
 
-//     document.getElementById("#lettersAlreadyGuessed").innerHTML = 
-//     guessedList;
 
-//     if (incorrectGuess = 9) {
-//         alert("Game over.");
-//     }
+// loop through winningCity.length
 
-//  }    
+// if guessedLetter doesn't match any of the winningCity.length, display it at #lettersAlreadyGuessed
+// add one to value
+// once value = 9, game over
 
-// cities.join(" ");
+// else create new variable, replace string using string (W3 schools) & display it at #display
 
+
+
+    // });

@@ -22,6 +22,8 @@
 
     <p id="winningCity"></p>
 
+    <div id="display"></div>
+
     Enter your guess (must be one letter): <input type="text" id="userGuess" onkeyup="captureGuess()">
 
     <p>Your guess is: <span id="enteredGuess"></span></p>
@@ -36,76 +38,24 @@
     
   
     
-    <div class="jumbotron jumbotron-fluid"><img src="assets/images/Europe-Cities.png" alt="cityskyline"/>
+    <!-- <div class="jumbotron jumbotron-fluid"><img src="assets/images/Europe-Cities.png" alt="cityskyline"/>
       <div class="container">
         <h1 class="display-4">Guess the World Capital</h1>
         <p class="lead">Press the button below to get started.</p>
       </div>
     </div>
 
-  </div>
+  </div> -->
 
-  <script src="assets/javascript/game.js"></script>
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="assets/javascript/game.js"></script>
+
+
 
   </body>
 </html>
 
 
 
-
-    <!-- this.lettersDiv = document.getElementById('letters');
-    this.incorrectLettersDiv = document.getElementById('incorrect-letters');
-
-    var word = "cat";
-    this.word = word;
-
-
-    // this.render();
-
-
-
-    document.onkeyup = function(letter) {
-      game.guess(letter.key);
-    }
-  },
-
-  guess: function(letter) {
-    
-    if (this.word.indexOf(letter) > -1) {
-      this.correctGuess(letter);
-    } else {
-      this.incorrectGuess(letter);
-    }
-    this.render();
-  },
-
-  correctGuess: function(letter) {
-    this.correctGuesses.push(letter);
-    // dom manipulation
-  },
-
-  incorrectGuess: function (letter) {
-    console.log(letter, 'is incorrect')
-    this.incorrectGuesses.push(letter);
-  },
-
-  render: function() {
-    this.renderLettersDiv();
-    this.incorrectLettersDiv.innerHTML = '';
-    this.saveToLocalStorage();
-  },
-
-  renderLettersDiv: function() {
-    this.lettersDiv.innerHTML = '';
-    var html = '';
-    for (var i = 0; i < this.word.length; i++) {
-      if (this.correctGuesses.indexOf(this.word[i]) > -1) {
-        html += "<div class='correct-letter'>" + this.word[i] + "<div>"; 
-      } else {
-        html += "<div class='unguessed-letter'>_</div>";
-      }
-    }
-
-    this.lettersDiv.innerHTML = html;
-  }, -->
