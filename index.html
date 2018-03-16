@@ -20,9 +20,9 @@
 
     <p>Fill in the missing letters of the world capital.</p>
 
-    <p id="winningCity"></p>
+    <h2 id="word-blanks"></h2>
 
-    <div id="display"></div>
+    <p id="winningCity"></p>
 
     Enter your guess (must be one letter): <input type="text" id="userGuess" onkeyup="captureGuess()">
 
@@ -30,11 +30,17 @@
 
     <button onclick="compareGuess()">Enter your guess</button>
 
-    <div id=lettersAlreadyGuessed></div>
+    <div id="lettersAlreadyGuessed"></div>
 
-    <div id=incorrectLetters></div>
-    
-    <button onclick="quitGame">Quit</button>
+    <div id="incorrectLetters"></div>
+
+    <div id="guesses-left">Remaining Guesses: </div>
+
+    <div id="win-counter"></div>
+
+    <div id="loss-counter"></div>
+
+    <!-- <button onclick="quitGame">Quit</button> -->
     
   
     

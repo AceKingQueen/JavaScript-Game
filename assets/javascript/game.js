@@ -1,7 +1,3 @@
-
-// $(document).ready(function() {
-
-
 //potential cities array        
 var cities = [
     "KABUL",
@@ -16,98 +12,189 @@ var cities = [
     "QUITO",
 ];
 
-var randomCity;
+var randomCity = "";
 
-var winningCity;
+var lettersRandomCity = [];
+//randomCity from words to an array
 
-var userGuess;
+var blanks = 0;
 
-var guessedLetter;
+var midTurn = [];
+//a way to show progress, some letters guessed right so far
 
-var guessedLetterList = [];
+var incorrectGuesses = [];
 
-var correctGuess;
+var guessedLetter = "";
 
-var incorrectGuess;
+var winTally = 0;
+var lossTally = 0;
+var numGuesses = 9;
 
-// var letters = [
-//     "A", "B", "C", "D", "E", "F", "G", "H", "I",
-//     "J", "K", "L", "M", "N", "O", "P", "Q", "R", 
-//     "S", "T", "U", "V", "W", "X", "Y", "Z", "_"
-// ];
 
-// var main = $("body");
 
-// var btns = main.find("#buttons");
 
-// for (var i = 0; i < letters.length; i++) {
-//     var letterBtn = $("<button>");
-//     letterBtn.addClass("letter-button letter letter-button-color");
-//     letterBtn.attr("data-letter", letters[i]);
-//     letterBtn.text(letters[i]);
-//     btns.append(letterBtn);
-// }
-
-// btns.on("click", ".letter-button", function() {
-//     var fridgeMagnet = $("<div>");
-//     fridgeMagnet.addClass("letter fridge-color");
-//     fridgeMagnet.text($(this).attr("data-letter"));
-//     main.find("#display").append(fridgeMagnet);
-// });
-
-// main.on("click", "#clear", function() {
-//     main.find("#display").empty();
-// });
 
 function startGame() {
+
+    
+    numGuesses = 9;
+    //start with maximum number of guesses
+
     randomCity = cities[Math.floor(Math.random() * cities.length)];
 
-    var length = randomCity.length;
-    // number that will contain number of characters in randomCity
 
-    var dash = " _ " ;
+    letterRandomCity = randomCity.split("");
+    //going from word to letters
 
-    winningCity = dash.repeat(length);
+    blanks = letterRandomCity.length;
 
-    document.getElementById("winningCity").innerHTML = winningCity;
 
+    console.log(randomCity);
+    
+
+
+    var midTurn = [];
+
+    
+
+    var incorrectGuesses = [];
+
+
+
+    for (var j = 0; j < blanks; j++) {
+        midTurn.push("_");
     }
 
 
-function captureGuess() {
-    userGuess = document.getElementById("userGuess").value;
+    console.log(midTurn);
 
-    document.getElementById("enteredGuess").innerHTML = userGuess; 
-    // display their guess
 
-    var guessedLetter = userGuess.toUpperCase();
-        //capitalize their guess
+    document.getElementByID("guesses-left").innerHTML = numGuesses;
+
+
+    document.getElementByID("winningCity").innerHTML = midTurn.join(" ");
 }
 
-function compareGuess() {
 
-    var characterList = winningCity.split();
-    // break up winningCity into array
-    var j;
 
-    // for (j = 0; j < characterList.length; j++) {
-        // if (guessedLetter !==
+
+
+
+
+function checkLetters (letter) {
+    
+    
+    
+    var letterInWord = false;
+
+
+    for (var p = 0; p < blanks; p++) {
+        
+        if (randomCity[j] === letter) {
+
+
+
+            letterinWord = true;
+        }
     }
 
 
 
+    if (letterinWord) {
+
+
+        for (var x = 0; x < blanks; x++) {
+
+
+            if (chosenWord[x] === letter) {
+
+
+
+                midTurn[x] = letter;
+            }
+        }
+
+
+        console.log(midTurn);
+    }
+
+
+    else {
+
+
+        incorrectGuesses.push(letter);
+
+
+        numGuesses--;
+
+    }
+
+}
+
+
+
+function roundComplete() {
 
 
 
 
-// loop through winningCity.length
-
-// if guessedLetter doesn't match any of the winningCity.length, display it at #lettersAlreadyGuessed
-// add one to value
-// once value = 9, game over
-
-// else create new variable, replace string using string (W3 schools) & display it at #display
 
 
 
-    // });
+
+
+document.getElementByID("guesses-left").innerHTML = numGuesses;
+
+
+document.getElementByID("word-blanks").innerHTML = midTurn.join(" ");
+
+
+document.getElementByID("incorrectLetters").innerHTML = incorrectGuesses.join(" ");
+
+
+
+if (lettersRandomCity.toString() === midTurn.toString()) {
+    
+    
+    winTally++;
+
+
+    alert("You win!");
+
+
+    document.getElementByID("win-counter").innerHTML = winTally;
+
+
+    startGame();
+}
+
+
+
+else if (numGuesses === 0) {
+
+    lossTally++;
+
+    alert("You lose");
+
+
+
+    document.getElementByID("loss-counter").innerHTML = lossTally;
+
+
+    startGame();
+}
+}
+
+startGame();
+
+
+document.onkeyup = function(event) {
+
+
+    guessedLetter = String.fromCharCode(event.which).toUpperCase();
+
+    checkLetters(guessedLetter);
+
+    roundComplete();
+}
+
