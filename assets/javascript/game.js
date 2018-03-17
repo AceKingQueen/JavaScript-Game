@@ -41,6 +41,7 @@ function startGame() {
     //start with maximum number of guesses
 
     randomCity = cities[Math.floor(Math.random() * cities.length)];
+    console.log(randomCity);
 
 
     letterRandomCity = randomCity.split("");
@@ -49,15 +50,15 @@ function startGame() {
     blanks = letterRandomCity.length;
 
 
-    console.log(randomCity);
+    // console.log(randomCity);
     
 
 
-    var midTurn = [];
+    midTurn = [];
 
     
 
-    var incorrectGuesses = [];
+    incorrectGuesses = [];
 
 
 
@@ -66,13 +67,13 @@ function startGame() {
     }
 
 
-    console.log(midTurn);
 
 
-    document.getElementByID("guesses-left").innerHTML = numGuesses;
+    document.getElementById("guesses-left").innerHTML = numGuesses;
 
 
-    document.getElementByID("winningCity").innerHTML = midTurn.join(" ");
+    document.getElementById("winningCity").innerHTML = 
+    midTurn.join(" ");
 }
 
 
@@ -81,7 +82,7 @@ function startGame() {
 
 
 
-function checkLetters (letter) {
+function checkLetters(letter) {
     
     
     
@@ -90,7 +91,7 @@ function checkLetters (letter) {
 
     for (var p = 0; p < blanks; p++) {
         
-        if (randomCity[j] === letter) {
+        if (randomCity[p] === letter) {
 
 
 
@@ -100,7 +101,7 @@ function checkLetters (letter) {
 
 
 
-    if (letterinWord) {
+    if (letterinWord = false) {
 
 
         for (var x = 0; x < blanks; x++) {
@@ -143,13 +144,13 @@ function roundComplete() {
 
 
 
-document.getElementByID("guesses-left").innerHTML = numGuesses;
+document.getElementById("guesses-left").innerHTML = numGuesses;
 
 
-document.getElementByID("word-blanks").innerHTML = midTurn.join(" ");
+document.getElementById("word-blanks").innerHTML = midTurn.join(" ");
 
 
-document.getElementByID("incorrectLetters").innerHTML = incorrectGuesses.join(" ");
+document.getElementById("incorrectLetters").innerHTML = incorrectGuesses.join(" ");
 
 
 
@@ -162,7 +163,7 @@ if (lettersRandomCity.toString() === midTurn.toString()) {
     alert("You win!");
 
 
-    document.getElementByID("win-counter").innerHTML = winTally;
+    document.getElementById("win-counter").innerHTML = winTally;
 
 
     startGame();
@@ -178,7 +179,7 @@ else if (numGuesses === 0) {
 
 
 
-    document.getElementByID("loss-counter").innerHTML = lossTally;
+    document.getElementById("loss-counter").innerHTML = lossTally;
 
 
     startGame();
