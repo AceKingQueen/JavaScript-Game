@@ -190,7 +190,7 @@ startGame();
 document.onkeyup = function(event) {
 
 
-    guessedLetter = String.fromCharCode(event.which).toUpperCase();
+    guessedLetter = String.fromCharCode(event.which).toLowerCase();
 
     checkLetters(guessedLetter);
 

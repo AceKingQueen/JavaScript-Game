@@ -1,9 +1,4 @@
-.letter {
-    width: 25px;
-    height: 25px;
-    padding: 2px;
+body {
+text-align: center;
 }
 
-.letter-button-color {
-    color: black;
-}
