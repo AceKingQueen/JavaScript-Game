@@ -32,8 +32,6 @@ var numGuesses = 9;
 
 
 
-
-
 function startGame() {
 
     
@@ -44,10 +42,10 @@ function startGame() {
     console.log(randomCity);
 
 
-    letterRandomCity = randomCity.split("");
+    lettersRandomCity = randomCity.split("");
     //going from word to letters
 
-    blanks = letterRandomCity.length;
+    blanks = lettersRandomCity.length;
 
 
     // console.log(randomCity);
@@ -83,33 +81,34 @@ function startGame() {
 
 function checkLetters(letter) {
     
-    
+    console.log("inside checkletters")
+    console.log("letter", letter)
     
     var letterInWord = false;
+    console.log("lettersrandomcity", lettersRandomCity)
 
-
-    for (var p = 0; p < blanks; p++) {
+    for (var p = 0; p < lettersRandomCity.length; p++) {
         
-        if (randomCity[p] === letter) {
+        if (lettersRandomCity[p] == letter) {
 
+                console.log("true sfddsfd")
 
-
-            letterinWord = true;
+            letterInWord = true;
         }
     }
 
+    console.log("outside of intial loop and value of letterinword is", letterInWord)
 
-
-    if (letterinWord = false) {
+    if (letterInWord) {
 
 
         for (var x = 0; x < blanks; x++) {
 
 
-            if (chosenWord[x] === letter) {
+            if (randomCity[x] === letter) {
 
 
-                midTurn[x] = letter;
+                midTurn.splice(x, 1, letter);
             }
         }
 
@@ -190,7 +189,7 @@ startGame();
 document.onkeyup = function(event) {
 
 
-    guessedLetter = String.fromCharCode(event.which).toLowerCase();
+    guessedLetter = String.fromCharCode(event.which).toUpperCase();
 
     checkLetters(guessedLetter);
 
