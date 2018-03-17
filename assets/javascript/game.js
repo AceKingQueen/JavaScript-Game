@@ -72,8 +72,7 @@ function startGame() {
     document.getElementById("guesses-left").innerHTML = numGuesses;
 
 
-    document.getElementById("winningCity").innerHTML = 
-    midTurn.join(" ");
+    document.getElementById("winningCity").innerHTML = midTurn.join(" ");
 }
 
 
@@ -108,7 +107,6 @@ function checkLetters(letter) {
 
 
             if (chosenWord[x] === letter) {
-
 
 
                 midTurn[x] = letter;
@@ -147,7 +145,7 @@ function roundComplete() {
 document.getElementById("guesses-left").innerHTML = numGuesses;
 
 
-document.getElementById("word-blanks").innerHTML = midTurn.join(" ");
+document.getElementById("winningCity").innerHTML = midTurn.join(" ");
 
 
 document.getElementById("incorrectLetters").innerHTML = incorrectGuesses.join(" ");
